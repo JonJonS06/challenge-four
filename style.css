@@ -16,6 +16,11 @@ body {
     padding: 5px;
 }
 
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .top-bar p {
     align-items: end;
 
