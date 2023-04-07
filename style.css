@@ -47,7 +47,7 @@ button:hover {
     border-image: initial;
 }
 
-.inner-container {
+.quiz-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
