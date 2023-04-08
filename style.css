@@ -54,9 +54,9 @@ button:hover {
     justify-content: center;
     align-content: center;
     height: -webkit-fill-available;
-    border: inset 5rem;
+    border: inset 2rem;
     border-color: cadetblue;
-    margin: 70px;
+    margin: 40px;
 }
 
 .quiz-intro {
