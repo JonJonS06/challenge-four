@@ -1,1 +1,1 @@
-var myname = "Jon";
+let startbtn = document.querySelector('.start-btn');
