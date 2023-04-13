@@ -8,7 +8,7 @@ clear.addEventListener("click", function () {
     location.reload();
 })
 
-var allScores = JSON.parse("allScores");
+var allScores = localStorage.getItem("allScores");
 allScores = JSON.parse(allScores);
 
 if (allScores !== null) {
@@ -21,6 +21,10 @@ if (allScores !== null) {
     }
 }
 
-play.addEventListener("click"), function () {
+play.addEventListener("click", function () {
     window.location.replace("./index.html");
-}
+});
+
+play.addEventListener("click", function () {
+    window.location.replace("./highscore.html");
+});

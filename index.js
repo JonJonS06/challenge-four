@@ -50,9 +50,9 @@ var questions = [
 
 let score = 0;
 let questionIndex = 0;
-var secondsLeft = 120;
+var secondsLeft = 90;
 var holdInterval = 0;
-var penalty = 5;
+var penalty = 10;
 var ulCreate = document.createElement("ul");
 
 function init() {
@@ -60,8 +60,8 @@ function init() {
 }
 
 
+
 startbtn.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
@@ -78,17 +78,13 @@ startbtn.addEventListener("click", function () {
 });
 
 function render(questionIndex) {
-    // Clears existing data 
     quizEl.innerHTML = "";
     ulCreate.innerHTML = "";
-    // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
-        // Appends question title only
         var userQuestion = questions[questionIndex].question;
         var userChoices = questions[questionIndex].choices;
         quizEl.textContent = userQuestion;
     }
-    // New for each for question choices
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -105,13 +101,10 @@ function compare(event) {
 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
-        // Correct condition 
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
-            // Correct condition 
         } else {
-            // Will deduct -5 seconds off secondsLeft for wrong answers
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
@@ -153,15 +146,12 @@ function finished() {
     }
 
 
-//Testing//
-
 var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
     quizEl.appendChild(createLabel);
 
-    // input
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
@@ -171,7 +161,6 @@ var createLabel = document.createElement("label");
 
     quizEl.appendChild(createInput);
 
-    // submit
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
@@ -179,7 +168,6 @@ var createLabel = document.createElement("label");
 
     quizEl.appendChild(createSubmit);
 
-    // Event listener to capture initials and local storage for initials and score
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -208,3 +196,7 @@ var createLabel = document.createElement("label");
     })
 }
 
+highscoreLi.addEventListener("click", function () {
+    window.location.replace("./highscore.html");
+
+});

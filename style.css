@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
+    background-color: rgb(182, 181, 181);
 }
 
 .main-container {
@@ -87,11 +88,20 @@ button:hover {
     font-size: 2rem;
     border: 1px solid;
     margin-right: 25px;
-    
 
 }
 
-/*#createSubmit {
-    font-size: 1.5rem;
+.leaderboard {
+    font: 5rem bold;
+    border: inset;
+    border-radius: 1rem;
+    border-width: 1rem;
+    border-color: cadetblue;
+      
 }
 
+#highscore {
+    display: grid;
+    justify-content: center;
+
+}
