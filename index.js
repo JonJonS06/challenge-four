@@ -60,6 +60,23 @@ function init() {
 }
 
 
+let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
+    
+    renderTitle('Leaderboard')
+
+    if (!scoreboard) {
+        let par = document.createElement('p');
+        par.textContent = 'It looks like there are no high scores yet! Will you be the first one?'
+        quizEl.appendChild(par);
+       
+        let button = document.createElement('button');
+        button.textContent = 'Back to Home';
+        button.addEventListener('click', renderHome);
+        quizEl.appendChild(button)
+
+        return
+    }
+
 startbtn.addEventListener("click", function () {
     // We are checking zero because its originally set to zero
     if (holdInterval === 0) {
@@ -97,7 +114,7 @@ function render(questionIndex) {
         listItem.addEventListener("click", (compare));
     })
 }
-// Event to compare choices with answer
+
 function compare(event) {
     var element = event.target;
 
@@ -117,11 +134,9 @@ function compare(event) {
         }
 
     }
-    // Question Index determines number question user is on
     questionIndex++;
 
     if (questionIndex >= questions.length) {
-        // All done will append last page with user stats
         finished();
         createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
@@ -134,20 +149,17 @@ function finished() {
     quizEl.innerHTML = "";
     timerEl.innerHTML = "";
 
-    // Heading:
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
 
     quizEl.appendChild(createH1);
 
-    // Paragraph
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
 
     quizEl.appendChild(createP);
 
-    // Calculates time remaining and replaces it with score
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
@@ -156,40 +168,58 @@ function finished() {
 
         quizEl.appendChild(createP2);
     }
+
+
+//Testing//
+
+var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter your initials: ";
+
+    quizEl.appendChild(createLabel);
+
+    // input
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
+    createInput.textContent = "";
+    createInput.maxLength = 3;
+    createInput.size = 4;
+
+    quizEl.appendChild(createInput);
+
+    // submit
+    var createSubmit = document.createElement("button");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "Submit");
+    createSubmit.textContent = "Submit";
+
+    quizEl.appendChild(createSubmit);
+
+    // Event listener to capture initials and local storage for initials and score
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+        if (initials === null) {
+
+            console.log("No value entered!");
+
+        } else {
+            var finalScore = {
+                initials: initials,
+                score: timeRemaining
+            }
+            console.log(finalScore);
+            var allScores = localStorage.getItem("allScores");
+            if (allScores === null) {
+                allScores = [];
+            } else {
+                allScores = JSON.parse(allScores);
+            }
+            allScores.push(finalScore);
+            var newScore = JSON.stringify(allScores);
+            localStorage.setItem("allScores", newScore);
+        }
+    })
 }
 
-function showScoreboard() {
-    quizEl.textContent = '';
-    resetQuiz();
-
-    // check if timer is initialized
-    if (timerInterval) {
-        stopTime();
-    }
-
-    let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
-    
-    renderTitle('HIgh Scores')
-
-    if (!scoreboard) {
-        let par = document.createElement('p');
-        par.textContent = 'It looks like there are no high scores yet! Will you be the first one?'
-        mainEl.appendChild(par);
-       
-        let button = document.createElement('button');
-        button.textContent = 'Play Again';
-        button.addEventListener('click', renderHome);
-        quizEl.appendChild(button)
-
-        return
-    }
-}
-let playerUl = document.createElement('ul');
-    playerUl.classList.add('highscore-list');
-
-    for (let i = 0; i < scoreboard.length; i++) {
-        let playerLi = document.createElement('li');
-        playerLi.classList.add('highscore-item');
-        playerLi.textContent = `${scoreboard[i].name} -- ${scoreboard[i].score}`;
-        playerUl.appendChild(playerLi);
-    }

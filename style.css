@@ -82,3 +82,16 @@ button:hover {
 .start-btn {
     justify-content: center;
 }
+
+#initials {
+    font-size: 2rem;
+    border: 1px solid;
+    margin-right: 25px;
+    
+
+}
+
+/*#createSubmit {
+    font-size: 1.5rem;
+}
+
