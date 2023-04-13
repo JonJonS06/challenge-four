@@ -11,7 +11,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
-    background-color: rgb(182, 181, 181);
+    background-color: rgb(205 200 200);
+      
 }
 
 .main-container {
@@ -32,6 +33,10 @@ button {
     font-size: 1.5rem;
     color: darkgreen;
     border-radius: 1rem;
+}
+
+.timer {
+    background-color: white;
 }
 
 button:hover {
@@ -72,6 +77,10 @@ button:hover {
 
 #introduction h1 {
     display: flex;
+    border: inset;
+    border-radius: 1rem;
+    border-width: 1rem;
+    border-color: cadetblue;
 }
 
 
