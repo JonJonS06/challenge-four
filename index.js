@@ -103,10 +103,10 @@ function compare(event) {
         createDiv.setAttribute("id", "createDiv");
         if (element.textContent == questions[questionIndex].answer) {
             score++;
-            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
+            createDiv.textContent = "Correct! The answer was:  " + questions[questionIndex].answer;
         } else {
             secondsLeft = secondsLeft - penalty;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+            createDiv.textContent = "Wrong! The correct answer was:  " + questions[questionIndex].answer;
         }
 
     }

@@ -25,6 +25,6 @@ play.addEventListener("click", function () {
     window.location.replace("./index.html");
 });
 
-play.addEventListener("click", function () {
+highscore.addEventListener("click", function () {
     window.location.replace("./highscore.html");
 });
