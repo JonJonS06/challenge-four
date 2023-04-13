@@ -10,6 +10,7 @@ clear.addEventListener("click", function () {
 
 var allScores = localStorage.getItem("allScores");
 allScores = JSON.parse(allScores);
+allScores.sort((a, b) =>b.score - a.score);
 
 if (allScores !== null) {
 
