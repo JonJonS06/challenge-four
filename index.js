@@ -1,3 +1,10 @@
+let startbtn = document.querySelector('.start-btn');
+let quizEl = document.querySelector('#quiz');
+let timerEl = document.querySelector('.timer');
+let homeEl = document.querySelector('.quiz-intro');
+let highscoreLi = document.querySelector('.highscore-btn')
+
+
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -42,8 +49,10 @@ var questions = [
 ];
 
 
+function init() {
+    renderHome();
+}
 
-
-let startbtn = document.querySelector('.start-btn');
+highscoreLi.addEventListener('click', renderScoreboard);
 
 
