@@ -60,23 +60,6 @@ function init() {
 }
 
 
-let scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
-    
-    renderTitle('Leaderboard')
-
-    if (!scoreboard) {
-        let par = document.createElement('p');
-        par.textContent = 'It looks like there are no high scores yet! Will you be the first one?'
-        quizEl.appendChild(par);
-       
-        let button = document.createElement('button');
-        button.textContent = 'Back to Home';
-        button.addEventListener('click', renderHome);
-        quizEl.appendChild(button)
-
-        return
-    }
-
 startbtn.addEventListener("click", function () {
     // We are checking zero because its originally set to zero
     if (holdInterval === 0) {
