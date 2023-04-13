@@ -202,6 +202,8 @@ var createLabel = document.createElement("label");
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
+            window.location.replace("./highscore.html");
+
         }
     })
 }

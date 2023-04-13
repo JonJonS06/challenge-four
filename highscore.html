@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <title>Coding Quiz</title>
+    </head>
+    
+    <body>
+   
+        <!-- Main Outer Div --> 
+        <div id="outer-fence" class="main-container">
+
+            <!-- Top Bar -->
+            <div id="info-bar" class="top-bar">
+                <button class="highscore-btn">View Highscores</button>
+                    <p class="timer">Timer: 0</p>
+            </div>
+    
+            <!-- Inner div -->
+            <div id="main-display" class="quiz-container">
+    
+                <!-- Main header/Quiz Intro -->
+                <header id="introduction" class="quiz-intro">
+                    <h1>Scoreboard</h1>
+                    
+                </header>
+    
+                <!-- main quiz content -->
+                <main id="quiz" class="quiz-questions">
+                    <ul id="Highscore"></ul>
+                    <button class="reset">Clear Scores</button>
+                    <button class="Play">Play Again</button>
+                </main>
+
+            </div>
+        
+        </div>
+
+    <script src="./highscore.js"></script>
+    </body>
+</html>
